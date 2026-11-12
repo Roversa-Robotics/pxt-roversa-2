@@ -13,13 +13,16 @@ To move an existing project across:
 2. In the Explorer, delete the old `roversa` extension.
 3. Add this extension the usual way.
 
-**Then check every Play and Menu block.** In the previous extension the two choices
-were stored under each other's names: what the editor showed as *Play* was stored as
-`RoversaPin.P8`, and *Menu* was stored as `RoversaPin.P5`. This extension stores each
-one under the name of the pin it actually uses, so after the upgrade a block that read
-*Play* reads *Menu*, and a block that read *Menu* reads *Play*. The block looks the
-same and the project still runs, so nothing warns you. Pick the right button again in
-each of those blocks. The other five buttons are unaffected.
+**Every block that picks a button will need that choice made again.** The previous
+extension named the choices after pins, as `RoversaPin.P5` and `RoversaPin.P8`. This
+extension names them after the buttons, as `RoversaButton.Play` and
+`RoversaButton.Menu`. The old names do not exist here, so the editor cannot carry a
+saved choice across and asks you to pick the button again.
+
+That is deliberate. The two extensions disagree about which pin Play and Menu sit on:
+in the previous one `P8` meant Play, and here `Play` means the Play button on pin P5.
+A choice carried over quietly would have pointed at the wrong button with nothing to
+show for it, so it is better that the editor asks.
 
 ## Roversa
 
@@ -51,14 +54,14 @@ to stay apart.
 Roversa button `isPressed` allows users to select any of the 7 buttons mapped to the micro:bit on Roversa. Buttons include FWD, REV, LEFT, RIGHT, STOP, MENU, PLAY. Users can make these buttons do anything in Blocks and Javascript
 
 ```block
-roversa.isPressed(RoversaPin.P5)
+roversa.isPressed(RoversaButton.Play)
 ```
 *Determines if a button is pressed*
 
 Roversa button `onEvent` allows users to select any of the above buttons and create an event on the button *down*, *up*, or *click*. In the above example when you push the Menu button on Pin 8 the LED display the string "Hello".
 
 ```blocks
-roversa.onEvent(RoversaPin.P8, RoversaEvent.Down, function() {
+roversa.onEvent(RoversaButton.Menu, RoversaEvent.Down, function() {
     basic.showString("Hello!")
 })
 ```

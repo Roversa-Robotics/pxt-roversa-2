@@ -42,5 +42,5 @@
   "roversa.setTurnTime|param|milliseconds": "cuántos milisegundos tarda en girar 360°.",
   "RoversaDirection": "A qué forma de conducir se aplica un ajuste de dirección. Roversa no es simétrico, así que avanzar y retroceder pueden necesitar correcciones distintas.",
   "RoversaEvent": "El evento indicado por los pines de Roversa.",
-  "RoversaPin": "Los pines usados por Roversa."
+  "RoversaButton": "Los botones de Roversa."
 }
