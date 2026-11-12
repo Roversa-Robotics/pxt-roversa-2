@@ -309,44 +309,44 @@ function reportEvent(name: string, event: string) {
 /* E1: poll every button and mirror it to its own LED. */
 basic.forever(function () {
     // Top row: the two menu-style buttons.
-    plotWhile(roversa.isPressed(RoversaPin.P8), 0, 0)    // Menu
-    plotWhile(roversa.isPressed(RoversaPin.P5), 4, 0)    // Play, shares its pin with button A
+    plotWhile(roversa.isPressed(RoversaButton.Menu), 0, 0)    // Menu
+    plotWhile(roversa.isPressed(RoversaButton.Play), 4, 0)    // Play, shares its pin with button A
 
     // A directional cross for the four driving buttons.
-    plotWhile(roversa.isPressed(RoversaPin.P13), 2, 1)   // Forward
-    plotWhile(roversa.isPressed(RoversaPin.P14), 2, 3)   // Backward
-    plotWhile(roversa.isPressed(RoversaPin.P16), 1, 2)   // Left Turn
-    plotWhile(roversa.isPressed(RoversaPin.P15), 3, 2)   // Right Turn
+    plotWhile(roversa.isPressed(RoversaButton.Forward), 2, 1)   // Forward
+    plotWhile(roversa.isPressed(RoversaButton.Backward), 2, 3)   // Backward
+    plotWhile(roversa.isPressed(RoversaButton.LeftTurn), 1, 2)   // Left Turn
+    plotWhile(roversa.isPressed(RoversaButton.RightTurn), 3, 2)   // Right Turn
 
     // Bottom left: stop.
-    plotWhile(roversa.isPressed(RoversaPin.P9), 0, 4)    // Stop
+    plotWhile(roversa.isPressed(RoversaButton.Stop), 0, 4)    // Stop
 })
 
 /* E2: registering all seven buttons for both events also checks that the event
    registration compiles for every pin in the enum. */
-roversa.onEvent(RoversaPin.P8, RoversaEvent.Down, function () { reportEvent("Menu", "down") })
-roversa.onEvent(RoversaPin.P8, RoversaEvent.Up, function () { reportEvent("Menu", "up") })
+roversa.onEvent(RoversaButton.Menu, RoversaEvent.Down, function () { reportEvent("Menu", "down") })
+roversa.onEvent(RoversaButton.Menu, RoversaEvent.Up, function () { reportEvent("Menu", "up") })
 
-roversa.onEvent(RoversaPin.P5, RoversaEvent.Down, function () { reportEvent("Play", "down") })
-roversa.onEvent(RoversaPin.P5, RoversaEvent.Up, function () { reportEvent("Play", "up") })
+roversa.onEvent(RoversaButton.Play, RoversaEvent.Down, function () { reportEvent("Play", "down") })
+roversa.onEvent(RoversaButton.Play, RoversaEvent.Up, function () { reportEvent("Play", "up") })
 
-roversa.onEvent(RoversaPin.P9, RoversaEvent.Down, function () { reportEvent("Stop", "down") })
-roversa.onEvent(RoversaPin.P9, RoversaEvent.Up, function () { reportEvent("Stop", "up") })
+roversa.onEvent(RoversaButton.Stop, RoversaEvent.Down, function () { reportEvent("Stop", "down") })
+roversa.onEvent(RoversaButton.Stop, RoversaEvent.Up, function () { reportEvent("Stop", "up") })
 
-roversa.onEvent(RoversaPin.P13, RoversaEvent.Down, function () { reportEvent("Forward", "down") })
-roversa.onEvent(RoversaPin.P13, RoversaEvent.Up, function () { reportEvent("Forward", "up") })
+roversa.onEvent(RoversaButton.Forward, RoversaEvent.Down, function () { reportEvent("Forward", "down") })
+roversa.onEvent(RoversaButton.Forward, RoversaEvent.Up, function () { reportEvent("Forward", "up") })
 
-roversa.onEvent(RoversaPin.P14, RoversaEvent.Down, function () { reportEvent("Backward", "down") })
-roversa.onEvent(RoversaPin.P14, RoversaEvent.Up, function () { reportEvent("Backward", "up") })
+roversa.onEvent(RoversaButton.Backward, RoversaEvent.Down, function () { reportEvent("Backward", "down") })
+roversa.onEvent(RoversaButton.Backward, RoversaEvent.Up, function () { reportEvent("Backward", "up") })
 
-roversa.onEvent(RoversaPin.P15, RoversaEvent.Down, function () { reportEvent("Right Turn", "down") })
-roversa.onEvent(RoversaPin.P15, RoversaEvent.Up, function () { reportEvent("Right Turn", "up") })
+roversa.onEvent(RoversaButton.RightTurn, RoversaEvent.Down, function () { reportEvent("Right Turn", "down") })
+roversa.onEvent(RoversaButton.RightTurn, RoversaEvent.Up, function () { reportEvent("Right Turn", "up") })
 
-roversa.onEvent(RoversaPin.P16, RoversaEvent.Down, function () { reportEvent("Left Turn", "down") })
-roversa.onEvent(RoversaPin.P16, RoversaEvent.Up, function () { reportEvent("Left Turn", "up") })
+roversa.onEvent(RoversaButton.LeftTurn, RoversaEvent.Down, function () { reportEvent("Left Turn", "down") })
+roversa.onEvent(RoversaButton.LeftTurn, RoversaEvent.Up, function () { reportEvent("Left Turn", "up") })
 
 /* The third event kind. A click is a press and release of the same button, so it
    arrives after the down and up lines for that button. */
-roversa.onEvent(RoversaPin.P13, RoversaEvent.Click, function () { reportEvent("Forward", "click") })
+roversa.onEvent(RoversaButton.Forward, RoversaEvent.Click, function () { reportEvent("Forward", "click") })
 
 serial.writeLine("Ready. Tap B for group B, hold B + logo for group C, logo alone for group D.")

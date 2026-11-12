@@ -1,22 +1,22 @@
 /**
- * The pins used by Roversa
+ * The buttons on Roversa
  */
 //%
-enum RoversaPin {
+enum RoversaButton {
     //% block="Menu"
-    P8 = DAL.MICROBIT_ID_IO_P8,
+    Menu = DAL.MICROBIT_ID_IO_P8,
     //% block="Play"
-    P5 = DAL.MICROBIT_ID_IO_P5,
+    Play = DAL.MICROBIT_ID_IO_P5,
     //% block="Stop"
-    P9 = DAL.MICROBIT_ID_IO_P9,
+    Stop = DAL.MICROBIT_ID_IO_P9,
     //% block="Forward"
-    P13 = DAL.MICROBIT_ID_IO_P13,
+    Forward = DAL.MICROBIT_ID_IO_P13,
     //% block="Backward"
-    P14 = DAL.MICROBIT_ID_IO_P14,
+    Backward = DAL.MICROBIT_ID_IO_P14,
     //% block="Right Turn"
-    P15 = DAL.MICROBIT_ID_IO_P15,
+    RightTurn = DAL.MICROBIT_ID_IO_P15,
     //% block="Left Turn"
-    P16 = DAL.MICROBIT_ID_IO_P16,
+    LeftTurn = DAL.MICROBIT_ID_IO_P16,
 }
 
 /**
@@ -153,7 +153,7 @@ namespace roversa {
     //% blockId=roversa_ispressed block="Roversa button %button|is pressed"
     //% group="Buttons" weight=91
     //% button.fieldEditor="gridpicker" button.fieldOptions.columns=3
-    export function isPressed(button: RoversaPin): boolean {
+    export function isPressed(button: RoversaButton): boolean {
         const pin = <DigitalPin><number>button;
         pins.setPull(pin, PinPullMode.PullUp);
         return pins.digitalReadPin(<DigitalPin><number>button) == 0;
@@ -166,7 +166,7 @@ namespace roversa {
     //% group="Buttons" weight=90
     //% button.fieldEditor="gridpicker" button.fieldOptions.columns=3
     //% event.fieldEditor="gridpicker" event.fieldOptions.columns=3
-    export function onEvent(button: RoversaPin, event: RoversaEvent, handler: Action) {
+    export function onEvent(button: RoversaButton, event: RoversaEvent, handler: Action) {
         init();
         control.onEvent(<number>button, <number>event, handler); // register handler
     }
