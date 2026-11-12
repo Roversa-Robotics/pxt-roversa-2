@@ -1,28 +1,21 @@
 # Roversa MakeCode Extension
 More info for Roversa can be found on [roversa.com](https://www.roversa.com) or on the [Roversa](https://www.globalcsed.org/tools.html) page at GlobalCSED.
 
-## Upgrading a project from the previous extension
+## Updating to the latest extension
 
-The previous Roversa extension was published from a personal account at
-`eb8ga/pxt-roversa-2`. This extension replaces it. MakeCode will not let a project
-use both at once, because they share the same name and namespace.
+We're continually improving Roversa based on what we learn alongside educators. This
+is the latest version of the extension, and projects built with an earlier one can
+move across in a few steps.
 
-To move an existing project across:
+A project can use only one Roversa extension at a time, so replace the old one:
 
 1. Switch the project to JavaScript.
-2. In the Explorer, delete the old `roversa` extension.
+2. In the Explorer, delete the `roversa` extension.
 3. Add this extension the usual way.
 
-**Every block that picks a button will need that choice made again.** The previous
-extension named the choices after pins, as `RoversaPin.P5` and `RoversaPin.P8`. This
-extension names them after the buttons, as `RoversaButton.Play` and
-`RoversaButton.Menu`. The old names do not exist here, so the editor cannot carry a
-saved choice across and asks you to pick the button again.
-
-That is deliberate. The two extensions disagree about which pin Play and Menu sit on:
-in the previous one `P8` meant Play, and here `Play` means the Play button on pin P5.
-A choice carried over quietly would have pointed at the wrong button with nothing to
-show for it, so it is better that the editor asks.
+Then check any block that chooses a button. Button choices do not carry across, so
+each dropdown needs setting again. Pick the button that block is for, and the project
+is ready to run.
 
 ## Roversa
 
