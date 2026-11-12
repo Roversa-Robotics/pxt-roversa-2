@@ -1,5 +1,25 @@
-# Roversa PXT Extension for MakeCode
+# Roversa MakeCode Extension
 More info for Roversa can be found on [roversa.com](https://www.roversa.com) or on the [Roversa](https://www.globalcsed.org/tools.html) page at GlobalCSED.
+
+## Upgrading a project from the previous extension
+
+The previous Roversa extension was published from a personal account at
+`eb8ga/pxt-roversa-2`. This extension replaces it. MakeCode will not let a project
+use both at once, because they share the same name and namespace.
+
+To move an existing project across:
+
+1. Switch the project to JavaScript.
+2. In the Explorer, delete the old `roversa` extension.
+3. Add this extension the usual way.
+
+**Then check every Play and Menu block.** In the previous extension the two choices
+were stored under each other's names: what the editor showed as *Play* was stored as
+`RoversaPin.P8`, and *Menu* was stored as `RoversaPin.P5`. This extension stores each
+one under the name of the pin it actually uses, so after the upgrade a block that read
+*Play* reads *Menu*, and a block that read *Menu* reads *Play*. The block looks the
+same and the project still runs, so nothing warns you. Pick the right button again in
+each of those blocks. The other five buttons are unaffected.
 
 ## Roversa
 
