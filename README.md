@@ -207,9 +207,17 @@ from the micro:bit buttons.
 How to run the tests, what each group should do, and the pass and fail criteria for
 each one are documented in the comment block at the top of `test.ts`.
 
+## Acknowledgements
+
+Roversa's servo handling started from Kitronik's
+[Servo:Lite](https://makecode.microbit.org/pkg/kitronikltd/pxt-kitronik-servo-lite)
+extension, and its button handling from SparkFun's
+[gamer:bit](https://makecode.microbit.org/pkg/sparkfun/pxt-gamer-bit) extension. Both
+are MIT licensed, and both copyright notices are kept in [LICENSE](LICENSE).
+
 ## License
 
-MIT
+MIT, see [LICENSE](LICENSE).
 
 ## Supported targets
 
